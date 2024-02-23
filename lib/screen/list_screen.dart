@@ -22,11 +22,10 @@ class _ListScreenState extends State<ListScreen> {
     fetchUsers();
   }
 
-//fetch users from API
+  // fetch users from API
   Future<void> fetchUsers() async {
     userList.clear();
-    final response =
-        await http.get(Uri.parse('http://192.168.1.211:3001/usergenerator'));
+    final response = await http.get(Uri.parse('http://192.168.1.3:3001/users'));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {
@@ -80,8 +79,10 @@ class _ListScreenState extends State<ListScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            UserDetails(user: filteredUsers[index]),
+                        builder: (context) => UserDetails(
+                          user: filteredUsers[index],
+                          context: context,
+                        ),
                       ),
                     );
                   },
