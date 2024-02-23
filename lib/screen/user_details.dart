@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_activity2/Models/user_model.dart';
+import 'package:flutter_activity2/screen/nowPage.dart';
 
 class UserDetails extends StatelessWidget {
   final UserModel user;
@@ -10,14 +11,15 @@ class UserDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'User Details',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.indigo,
-        iconTheme: const IconThemeData(color: Colors.white) // Setting icon color to white
-      ),
+          centerTitle: true,
+          title: const Text(
+            'User Details',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+          backgroundColor: Colors.indigo,
+          iconTheme: const IconThemeData(
+              color: Colors.white) // Setting icon color to white
+          ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -150,6 +152,19 @@ class UserDetails extends StatelessWidget {
           _buildSubSetRow(title: 'Name', value: company.name),
           _buildSubSetRow(title: 'Catch Phrase', value: company.catchPhrase),
           _buildSubSetRow(title: 'Buzz Phrase', value: company.bs),
+          const Text('Test'),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NowPage()),
+                );
+              },
+              child: const Text('Show to dos'),
+            ),
+          ),
         ],
       ],
     );
