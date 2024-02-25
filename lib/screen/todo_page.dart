@@ -20,6 +20,19 @@ class _TodoPageState extends State<TodoPage> {
     _todoListFuture = fetchTodoList();
   }
 
+  // Future<List<Todo>> fetchTodoList() async {
+  //   final response = await http.get(Uri.parse('http://192.168.1.3:3001/todos'));
+  //   if (response.statusCode == 200) {
+  //     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+  //     List<dynamic> todoList = jsonResponse[
+  //         'todos']; // Assuming 'todos' is the key containing the list of todos
+  //     List<Todo> todos = todoList.map((item) => Todo.fromJson(item)).toList();
+  //     return todos;
+  //   } else {
+  //     throw Exception('Failed to load todo list');
+  //   }
+  // }
+
   Future<List<Todo>> fetchTodoList() async {
     final response = await http.get(Uri.parse('http://192.168.1.3:3001/todos'));
     if (response.statusCode == 200) {

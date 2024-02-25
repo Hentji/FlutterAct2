@@ -7,29 +7,29 @@ String todoToJson(List<Todo> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Todo {
-  int id;
+  // int id;
   String task;
-  String description;
+  // String description;
   bool finished;
 
   Todo({
-    required this.id,
+    //required this.id,
     required this.task,
-    required this.description,
+    // required this.description,
     required this.finished,
   });
 
   factory Todo.fromJson(Map<String, dynamic> json) => Todo(
-        id: json["id"],
+        //id: json["id"],
         task: json["task"],
-        description: json["Description"],
+        // description: json["Description"],
         finished: json["finished"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        //"id": id,
         "task": task,
-        "Description": description,
+        //"Description": description,
         "finished": finished,
       };
 }
